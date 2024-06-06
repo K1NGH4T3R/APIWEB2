@@ -13,13 +13,13 @@ const auth = (role = null) => {
       }
 
       if (role && user.role !== role) {
-        return res.status(403).json({ message: 'Access denied' });
+        return res.status(403).json({ message: 'Acesso Negado' });
       }
 
       req.user = user;
       next();
     } catch (error) {
-      res.status(401).json({ message: 'Please authenticate' });
+      res.status(401).json({ message: 'Por favor autentique' });
     }
   };
 };
