@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Artifact = sequelize.define('Artifact', {
+    return sequelize.define('Artifact', {
       name: {
         type: DataTypes.STRING,
         allowNull: false
@@ -9,6 +9,4 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       }
     });
-  
-    return Artifact;
   };
