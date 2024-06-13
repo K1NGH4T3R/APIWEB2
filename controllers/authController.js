@@ -25,6 +25,10 @@ module.exports = {
             console.error(err);
             res.status(500).json({ error: 'Erro ao fazer login' });
         }
+    },
+    async logout(req, res) {
+        req.session.destroy();
+        res.redirect('/');
     }
 };
 
