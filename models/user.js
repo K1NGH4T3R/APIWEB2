@@ -1,3 +1,5 @@
+const { INTEGER } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
       username: {
@@ -11,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       },
       role: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false
       }
     });
