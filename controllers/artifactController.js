@@ -20,6 +20,26 @@ module.exports = {
         }
     },
 
+    async getArtifactById(req, res){
+        try {
+            const Artefato = await db.Artifact.findByPk(req.body.id);
+            res.status(200).json(Artefato);
+        } catch (err) {
+            console.error(err);
+            res.status(500).json({ error: 'Erro ao listar artefato' });
+        }
+    },
+
+    async getArtifactByActivity (req, res) {
+        try{
+            const Artefato = await db.Artifact.findAll({where: {activity_id:req.params.id}});
+            res.status(200).json(Artefato);
+        } catch (err){
+            console.error(err);
+            res.status(500).json({ error: 'Erro ao listar artefato' });
+        }
+    },
+
     async putArtifact(req, res) {
         try {
             const [updated] = await db.Artifact.update(req.body, {
@@ -37,9 +57,9 @@ module.exports = {
         }
     },
 
-    async deleteActivity(req, res) {
+    async deleteArtifact(req, res) {
         try {
-            const deleted = await db.Activity.destroy({
+            const deleted = await db.Artifact.destroy({
                 where: { id: req.params.id }
             });
             if (deleted) {

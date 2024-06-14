@@ -1,10 +1,11 @@
 const db = require('../config/database');
+const artifact = require('../models/artifact');
 
 module.exports = {
     async postActivity(req, res){
         try{ 
-            const nomeAtividade = await db.Activity.create(req.body);
-            res.status(201).json(nomeAtividade);
+            const Atividade = await db.Activity.create(req.body);
+            res.status(201).json(Atividade);
         } catch(err){
             res.status(500).json({ error: 'Erro ao criar atividade' });
         }
@@ -12,11 +13,32 @@ module.exports = {
 
     async getActivity(req, res) {
         try {
-            const atividades = await db.Activity.findAll();
-            res.status(200).json(atividades);
+            const Atividades = await db.Activity.findAll();
+            res.status(200).json(Atividades);
         } catch (err) {
             console.error(err);
             res.status(500).json({ error: 'Erro ao listar atividades' });
+        }
+    },
+
+    async getActivityById (req, res) {
+        try{
+            const Atividade = await db.Activity.findByPk(req.params.id);
+
+            res.status(200).json(Atividade);
+        } catch(err){
+            console.error(err);
+            res.status(500).json({error: 'erro ao obter atividade'});
+        }
+    },
+
+    async getActivityByUser (req, res) {
+        try{
+            const Atividade = await db.Activity.findAll({where: {assigned_to: req.params.id}});
+            res.status(200).json(Atividade);
+        } catch (err){
+            console.error(err);
+            res.status(500).json({error: 'atividade não encontrada'});
         }
     },
 

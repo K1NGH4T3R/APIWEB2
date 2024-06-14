@@ -19,7 +19,7 @@ module.exports = {
             res.status(500).json({ error: 'Erro ao listar usuários' });
         }
     },
-    async getUsersById(req, res) {
+    async getUsersByUsername(req, res) {
         try {
             const usuario = await db.User.findByPk(req.params.id);
             if (usuario) {
