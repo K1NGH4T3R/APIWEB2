@@ -2,7 +2,7 @@
 
 ## Visão Geral
 
-##instalação
+## instalação
 ```
 npm install sqlite sequelize jsonwebtoken bodyparser express 
 ```
