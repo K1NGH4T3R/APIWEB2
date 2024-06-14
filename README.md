@@ -502,7 +502,3 @@ Authorization: Bearer cyno
     "activity_id": 1
 }
 ```
-
-## Conclusão
-
-Esta documentação cobre as funcionalidades principais de uma API RESTful para gerenciamento de atividades, incluindo o cadastro e autenticação de usuários, gerenciamento de atividades, registro de artefatos e políticas de acesso. A API atende ao Nível 2 do modelo de maturidade de Richardson, utilizando métodos HTTP adequados, URIs claros e princípios RESTful.
