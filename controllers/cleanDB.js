@@ -1,4 +1,4 @@
-const { sequelize } = require('../models'); // Importe o objeto sequelize configurado
+const { sequelize } = require('../models'); 
 const { QueryTypes } = require('sequelize');
 
 async function cleanDB() {

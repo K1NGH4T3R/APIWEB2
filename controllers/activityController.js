@@ -1,10 +1,9 @@
-const db = require('../config/database');
-const artifact = require('../models/artifact');
+const { Activity } = require('../models');
 
 module.exports = {
     async postActivity(req, res){
         try{ 
-            const Atividade = await db.Activity.create(req.body);
+            const Atividade = await Activity.create(req.body);
             res.status(201).json(Atividade);
         } catch(err){
             res.status(500).json({ error: 'Erro ao criar atividade' });
@@ -13,7 +12,7 @@ module.exports = {
 
     async getActivity(req, res) {
         try {
-            const Atividades = await db.Activity.findAll();
+            const Atividades = await Activity.findAll();
             res.status(200).json(Atividades);
         } catch (err) {
             console.error(err);
@@ -23,7 +22,7 @@ module.exports = {
 
     async getActivityById (req, res) {
         try{
-            const Atividade = await db.Activity.findByPk(req.params.id);
+            const Atividade = await Activity.findByPk(req.params.id);
 
             res.status(200).json(Atividade);
         } catch(err){
@@ -34,7 +33,7 @@ module.exports = {
 
     async getActivityByUser (req, res) {
         try{
-            const Atividade = await db.Activity.findAll({where: {assigned_to: req.params.id}});
+            const Atividade = await Activity.findAll({where: {assigned_to: req.params.id}});
             res.status(200).json(Atividade);
         } catch (err){
             console.error(err);
@@ -44,11 +43,11 @@ module.exports = {
 
     async putActivity(req, res) {
         try {
-            const [updated] = await db.Activity.update(req.body, {
+            const [updated] = await Activity.update(req.body, {
                 where: { id: req.params.id }
             });
             if (updated) {
-                const updatedAtividade = await db.Activity.findByPk(req.params.id);
+                const updatedAtividade = await Activity.findByPk(req.params.id);
                 res.status(200).json(updatedAtividade);
             } else {
                 res.status(404).json({ error: 'Atividade não encontrada' });
@@ -61,7 +60,7 @@ module.exports = {
 
     async deleteActivity(req, res) {
         try {
-            const deleted = await db.Activity.destroy({
+            const deleted = await Activity.destroy({
                 where: { id: req.params.id }
             });
             if (deleted) {

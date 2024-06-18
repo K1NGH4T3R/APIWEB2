@@ -1,4 +1,4 @@
-const { User } = require('../models'); // Ajuste o caminho conforme necessário
+const { User } = require('../models');
 
 module.exports = {
   async postUser(req, res) {
