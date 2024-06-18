@@ -1,9 +1,9 @@
-const db = require('../config/database');
+const { Artifact } = require('../models/index');
 
 module.exports = {
     async postArtifact(req, res){
         try{ 
-            const nomeArtefato = await db.Artifact.create(req.body);
+            const nomeArtefato = await Artifact.create(req.body);
             res.status(201).json(nomeArtefato);
         } catch(err){
             res.status(500).json({ error: 'Erro ao criar artefato' });
@@ -12,7 +12,7 @@ module.exports = {
 
     async getArtifact(req, res) {
         try {
-            const Artefato = await db.Artifact.findAll();
+            const Artefato = await Artifact.findAll();
             res.status(200).json(Artefato);
         } catch (err) {
             console.error(err);
@@ -22,7 +22,7 @@ module.exports = {
 
     async getArtifactById(req, res){
         try {
-            const Artefato = await db.Artifact.findByPk(req.body.id);
+            const Artefato = await Artifact.findByPk(req.body.id);
             res.status(200).json(Artefato);
         } catch (err) {
             console.error(err);
@@ -32,7 +32,7 @@ module.exports = {
 
     async getArtifactByActivity (req, res) {
         try{
-            const Artefato = await db.Artifact.findAll({where: {activity_id:req.params.id}});
+            const Artefato = await Artifact.findAll({where: {activity_id:req.params.id}});
             res.status(200).json(Artefato);
         } catch (err){
             console.error(err);
@@ -42,11 +42,11 @@ module.exports = {
 
     async putArtifact(req, res) {
         try {
-            const [updated] = await db.Artifact.update(req.body, {
+            const [updated] = await Artifact.update(req.body, {
                 where: { id: req.params.id }
             });
             if (updated) {
-                const updatedArtefato = await db.Artifact.findByPk(req.params.id);
+                const updatedArtefato = await Artifact.findByPk(req.params.id);
                 res.status(200).json(updatedArtefato);
             } else {
                 res.status(404).json({ error: 'Artefato não encontrado' });
@@ -59,7 +59,7 @@ module.exports = {
 
     async deleteArtifact(req, res) {
         try {
-            const deleted = await db.Artifact.destroy({
+            const deleted = await Artifact.destroy({
                 where: { id: req.params.id }
             });
             if (deleted) {

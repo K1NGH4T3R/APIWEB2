@@ -459,7 +459,6 @@ Authorization: Bearer cyno
 ```
 
 ##### Parâmetros
-- **role** (INTEGER, obrigatório): Nova role do usuário (1 para Administrador, 2 para Usuário Comum).
 
 ##### Exemplo de Requisição
 ```json

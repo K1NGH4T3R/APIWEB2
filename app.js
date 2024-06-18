@@ -1,29 +1,25 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
-const authenticateToken = require('./middleware/auth');
 const { sequelize } = require('./models');
 const routes = require('./routes/router');
+const cleanDB = require('./controllers/cleanDB');
 
-
-const secretKey = 'cyno'; 
 const app = express();
+const secretKey = 'cyno'; 
 
-app.use('/api', routes);
+// Middlewares de análise de corpo
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use('/api', authenticateToken);
 
-
-app.use(
-    express.urlencoded({
-        extended: true
-    })
-);
+// Rotas principais
+app.use('/api', routes);
 
 app.get('/', (req, res) => {
   res.send('API LIGADA');
 });
+
+app.post('/reset', cleanDB);
 
 app.post('/shutdown', (req, res) => {
     res.send('desligando o servidor...');
