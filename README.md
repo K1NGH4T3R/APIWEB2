@@ -2,6 +2,11 @@
 
 ## Visão Geral
 
+## instalação
+```
+npm install sqlite sequelize jsonwebtoken bodyparser express 
+```
+
 Esta documentação descreve uma API RESTful para gerenciamento de atividades, incluindo funcionalidades de cadastro de usuários, autenticação, gerenciamento de atividades e registro de artefatos. A API está em conformidade com o Nível 2 do modelo de maturidade de Richardson.
 
 ## Endpoints
@@ -454,7 +459,6 @@ Authorization: Bearer cyno
 ```
 
 ##### Parâmetros
-- **role** (INTEGER, opcional): Nova role do usuário (1 para Administrador, 2 para Usuário Comum).
 
 ##### Exemplo de Requisição
 ```json
