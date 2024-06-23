@@ -1,9 +1,8 @@
-const { sequelize } = require('../models'); 
+const { sequelize } = require('../models');
 const { QueryTypes } = require('sequelize');
 
 async function cleanDB() {
   try {
- 
     const models = Object.values(sequelize.models);
 
     await sequelize.query('SET FOREIGN_KEY_CHECKS = 0', { type: QueryTypes.RAW });
