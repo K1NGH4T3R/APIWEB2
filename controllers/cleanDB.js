@@ -5,13 +5,13 @@ async function cleanDB() {
   try {
     const models = Object.values(sequelize.models);
 
-    await sequelize.query('SET FOREIGN_KEY_CHECKS = 0', { type: QueryTypes.RAW });
+    await sequelize.query('PRAGMA foreign_keys = OFF', { type: QueryTypes.RAW });
 
     for (let model of models) {
       await model.destroy({ where: {}, truncate: true });
     }
 
-    await sequelize.query('SET FOREIGN_KEY_CHECKS = 1', { type: QueryTypes.RAW });
+    await sequelize.query('PRAGMA foreign_keys = ON', { type: QueryTypes.RAW });
 
     console.log('Banco de dados limpo com sucesso.');
   } catch (error) {
