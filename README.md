@@ -3,9 +3,6 @@
 ## Visão Geral
 
 ## instalação
-```
-npm install sqlite sequelize jsonwebtoken bodyparser express 
-```
 
 Esta documentação descreve uma API RESTful para gerenciamento de atividades, incluindo funcionalidades de cadastro de usuários, autenticação, gerenciamento de atividades e registro de artefatos. A API está em conformidade com o Nível 2 do modelo de maturidade de Richardson.
 
@@ -15,7 +12,7 @@ Esta documentação descreve uma API RESTful para gerenciamento de atividades, i
 
 #### Endpoint
 ```
-POST /user
+POST /api/user
 ```
 
 #### Descrição
@@ -43,7 +40,7 @@ Permite o cadastro de novos usuários fornecendo um nome de usuário, uma senha 
 
 #### Endpoint
 ```
-POST /login
+POST /api/login
 ```
 
 #### Descrição
@@ -71,7 +68,7 @@ Permite que os usuários façam login e recebam um token de autenticação para 
 
 #### Endpoint
 ```
-POST /activity
+POST /api/activity
 ```
 
 #### Descrição
@@ -102,7 +99,7 @@ Authorization: Bearer cyno
 
 #### Endpoint
 ```
-PUT /activity/:id
+PUT /api/activity/:id
 ```
 
 #### Descrição
@@ -172,7 +169,7 @@ Authorization: Bearer cyno
 
 #### Endpoint
 ```
-GET /user/:username/activity
+GET /api/user/:username/activity
 ```
 
 #### Descrição
@@ -192,7 +189,7 @@ Authorization: Bearer cyno
 
 #### Endpoint
 ```
-DELETE /activity/:id
+DELETE /api/activity/:id
 ```
 
 #### Descrição
@@ -214,7 +211,7 @@ Authorization: Bearer cyno
 
 #### Endpoint
 ```
-POST /activity/:id/artifact
+POST /api/activity/:id/artifact
 ```
 
 #### Descrição
@@ -245,7 +242,7 @@ Authorization: Bearer cyno
 
 #### Endpoint
 ```
-GET /activity/:id/artifact
+GET /api/activity/:id/artifact
 ```
 
 #### Descrição
@@ -265,7 +262,7 @@ Authorization: Bearer cyno
 
 #### Endpoint
 ```
-GET /activity/:id/artifact/:id
+GET /api/activity/:id/artifact/:id
 ```
 
 #### Descrição
@@ -285,7 +282,7 @@ Authorization: Bearer cyno
 
 #### Endpoint
 ```
-PUT /activity/:id/artifact/:id
+PUT /api/activity/:id/artifact/:id
 ```
 
 #### Descrição
@@ -316,7 +313,7 @@ Authorization: Bearer cyno
 
 #### Endpoint
 ```
-DELETE /activity/:id/artifact/:id
+DELETE /api/activity/:id/artifact/:id
 ```
 
 #### Descrição
@@ -338,7 +335,7 @@ Authorization: Bearer cyno
 
 #### Endpoint
 ```
-GET /user
+GET /api/user
 ```
 
 #### Descrição
@@ -357,7 +354,7 @@ Authorization: Bearer cyno
 
 #### Endpoint
 ```
-GET /user/:username
+GET /api/user/:username
 ```
 
 #### Descrição
@@ -379,7 +376,7 @@ Authorization: Bearer cyno
 
 #### Endpoint
 ```
-PUT /user/:username
+PUT /api/user/:username
 ```
 
 #### Descrição
@@ -413,7 +410,7 @@ Authorization: Bearer cyno
 
 #### Endpoint
 ```
-DELETE /user/:username
+DELETE /api/user/:username
 ```
 
 #### Descrição
@@ -447,7 +444,7 @@ As políticas de acesso são gerenciadas via roles atribuídas a cada usuário n
 #### Atualização de Roles
 ##### Endpoint
 ```
-PUT /user/:username
+PUT /api/user/:username
 ```
 
 ##### Descrição

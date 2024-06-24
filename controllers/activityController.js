@@ -3,9 +3,11 @@ const { Activity } = require('../models');
 module.exports = {
     async postActivity(req, res){
         try{ 
+            console.log(req.body)
             const Atividade = await Activity.create(req.body);
             res.status(201).json(Atividade);
         } catch(err){
+            console.log(err)
             res.status(500).json({ error: 'Erro ao criar atividade' });
         }
     },

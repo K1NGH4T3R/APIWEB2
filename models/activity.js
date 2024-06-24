@@ -4,9 +4,5 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
-      assigned_to: {
-        type: DataTypes.INTEGER,
-        allowNull: true
-      }
     });
   };
